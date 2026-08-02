@@ -1,0 +1,2377 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+html,
+body{
+    width:100%;
+    height:100%;
+}
+
+body{
+
+    overflow-y:auto;
+overflow-x:hidden;
+    background:#140021;
+  cursor:default;
+
+}
+
+#passwordScreen{
+
+    width:100%;
+    height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+#website{
+
+    width:100%;
+    height:100vh;
+
+    display:none;
+
+}
+#passwordScreen{
+
+    width:100%;
+    height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:linear-gradient(
+        135deg,
+        #170024,
+        #3d0066,
+        #8a2be2
+    );
+
+}
+
+.login-box{
+
+    width:360px;
+
+    padding:40px;
+
+    border-radius:20px;
+
+    background:rgba(255,255,255,.08);
+
+    backdrop-filter:blur(15px);
+
+    border:1px solid rgba(255,255,255,.2);
+
+    text-align:center;
+
+    box-shadow:
+    0 0 30px rgba(255,255,255,.15);
+
+}
+
+.login-box h1{
+
+    color:white;
+
+    margin-bottom:15px;
+
+}
+
+.login-box p{
+
+    color:white;
+
+    margin-bottom:15px;
+
+}
+
+.login-box input{
+
+    width:100%;
+
+    padding:15px;
+
+    border:none;
+
+    outline:none;
+
+    border-radius:12px;
+
+    margin-bottom:20px;
+
+    font-size:16px;
+
+}
+
+.login-box button{
+
+    width:100%;
+
+    padding:15px;
+
+    border:none;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    font-size:18px;
+
+    color:white;
+
+    background:#d633ff;
+
+    transition:.3s;
+}
+
+.login-box button:hover{
+
+    transform:scale(1.05);
+
+    background:#ff4dff;
+
+}
+
+#error{
+
+    color:#ffd1d1;
+
+    margin-top:15px;
+
+    font-weight:bold;
+
+    min-height:24px;
+
+}
+
+   #page1{
+    width:100%;
+    height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    position:relative;
+
+    overflow:hidden;
+
+    background:linear-gradient(
+        -45deg,
+        #160022,
+        #3b0066,
+        #6a00ff,
+        #2d004d,
+        #a100ff
+    );
+
+    background-size:400% 400%;
+    animation:bgMove 12s ease infinite;
+}
+
+.content{
+
+    width:90%;
+    max-width:800px;
+
+    text-align:center;
+
+    z-index:10;
+
+}
+
+#typing{
+
+    color:white;
+
+    font-size:48px;
+
+    line-height:1.4;
+
+    min-height:180px;
+
+    white-space:pre-line;
+
+    transition:.4s;
+margin-bottom:40px;
+
+    text-shadow:
+
+    0 0 10px white,
+
+    0 0 20px #ff66ff,
+
+    0 0 40px #ff66ff;
+
+}
+
+#nextBtn{
+
+    margin-top:50px;
+
+    padding:18px 45px;
+
+    border:none;
+
+    border-radius:50px;
+
+    cursor:pointer;
+
+    font-size:20px;
+
+    color:white;
+
+    background:linear-gradient(45deg,#ff4fd8,#b000ff);
+
+    display:none;
+
+    opacity:0;
+
+    transform:translateY(30px);
+
+    transition:.5s;
+ position:relative;
+
+    z-index:9999;
+
+    pointer-events:auto;
+
+
+    box-shadow:
+    0 0 15px #ff66ff,
+    0 0 35px rgba(255,105,180,.5);
+
+    animation:buttonGlow 2s infinite alternate;
+
+}
+#nextBtn:hover{
+
+    transform:scale(1.08);
+
+    box-shadow:
+
+    0 0 25px #ff4de3;
+
+}
+
+@media(max-width:768px){
+
+#typing{
+
+font-size:30px;
+
+line-height:45px;
+
+}
+
+#nextBtn{
+
+font-size:18px;
+
+padding:16px 35px;
+
+}
+
+}
+@keyframes bgMove{
+
+0%{
+
+background-position:0% 50%;
+
+}
+
+50%{
+
+background-position:100% 50%;
+
+}
+
+100%{
+
+background-position:0% 50%;
+
+}
+
+}
+/* ===========================
+   Stars
+=========================== */
+
+#stars{
+
+    position:absolute;
+
+    inset:0;
+
+    overflow:hidden;
+
+    z-index:1;
+
+}
+
+.star{
+
+    position:absolute;
+
+    width:3px;
+
+    height:3px;
+
+    background:white;
+
+    border-radius:50%;
+
+    box-shadow:
+    0 0 6px white,
+    0 0 12px white;
+
+    animation:twinkle linear infinite;
+
+}
+
+@keyframes twinkle{
+
+    0%{
+
+        opacity:.2;
+        transform:scale(.5);
+
+    }
+
+    50%{
+
+        opacity:1;
+        transform:scale(1.4);
+
+    }
+
+    100%{
+
+        opacity:.2;
+        transform:scale(.5);
+
+    }
+
+}
+/* ===========================
+   Moon
+=========================== */
+
+#moon{
+
+    position:absolute;
+
+    top:60px;
+
+    right:80px;
+
+    width:140px;
+
+    height:140px;
+
+    border-radius:50%;
+
+    background:radial-gradient(circle,#ffffff,#f8f4ff,#d9b3ff);
+
+    box-shadow:
+    0 0 40px white,
+    0 0 80px #d48cff,
+    0 0 120px #b84dff;
+
+    animation:moonFloat 6s ease-in-out infinite;
+
+    z-index:2;
+
+}
+
+@keyframes moonFloat{
+
+    0%{
+
+        transform:translateY(0px);
+
+    }
+
+    50%{
+
+        transform:translateY(-15px);
+
+    }
+
+    100%{
+
+        transform:translateY(0px);
+
+    }
+
+}
+
+@media(max-width:768px){
+
+#moon{
+
+width:90px;
+
+height:90px;
+
+right:25px;
+
+top:35px;
+
+}
+
+}
+/* ===========================
+   Floating Hearts
+=========================== */
+
+#hearts{
+
+    position:absolute;
+
+    inset:0;
+
+    overflow:hidden;
+
+    pointer-events:none;
+
+    z-index:3;
+
+}
+
+.heart{
+
+    position:absolute;
+
+    bottom:-40px;
+
+    color:#ff7ac8;
+
+    font-size:22px;
+
+    opacity:.85;
+
+    animation:heartFloat linear forwards;
+
+    text-shadow:
+        0 0 8px #ff66cc,
+        0 0 15px #ff99dd;
+
+}
+
+@keyframes heartFloat{
+
+    0%{
+
+        transform:
+        translateY(0)
+        scale(.8);
+
+        opacity:0;
+
+    }
+
+    15%{
+
+        opacity:1;
+
+    }
+
+    100%{
+
+        transform:
+        translateY(-120vh)
+        translateX(60px)
+        scale(1.4)
+        rotate(360deg);
+
+        opacity:0;
+
+    }
+
+}
+/* ===========================
+   Rose Petals
+=========================== */
+
+#petals{
+
+    position:absolute;
+
+    inset:0;
+
+    overflow:hidden;
+
+    pointer-events:none;
+
+    z-index:4;
+
+}
+
+.petal{
+
+    position:absolute;
+
+    top:-50px;
+
+    color:#ff4d8d;
+
+    font-size:22px;
+
+    opacity:.9;
+
+    text-shadow:
+        0 0 10px #ff99cc;
+
+    animation:petalFall linear forwards;
+
+}
+
+@keyframes petalFall{
+
+    0%{
+
+        transform:
+        translateY(0)
+        rotate(0deg);
+
+        opacity:0;
+
+    }
+
+    10%{
+
+        opacity:1;
+
+    }
+
+    100%{
+
+        transform:
+        translateY(120vh)
+        translateX(80px)
+        rotate(720deg);
+
+        opacity:0;
+
+    }
+
+}
+/* ===========================
+   Sparkles
+=========================== */
+
+#sparkles{
+
+    position:absolute;
+
+    inset:0;
+
+    overflow:hidden;
+
+    pointer-events:none;
+
+    z-index:5;
+
+}
+
+.sparkle{
+
+    position:absolute;
+
+    width:4px;
+
+    height:4px;
+
+    border-radius:50%;
+
+    background:white;
+
+    box-shadow:
+        0 0 8px white,
+        0 0 18px #ffd6ff,
+        0 0 30px #ffffff;
+
+    animation:sparkleGlow linear forwards;
+
+}
+
+@keyframes sparkleGlow{
+
+    0%{
+
+        opacity:0;
+        transform:scale(0);
+
+    }
+
+    50%{
+
+        opacity:1;
+        transform:scale(2);
+
+    }
+
+    100%{
+
+        opacity:0;
+        transform:scale(0);
+
+    }
+
+}
+@keyframes blink{
+
+0%{
+
+opacity:1;
+
+}
+
+50%{
+
+opacity:0;
+
+}
+
+100%{
+
+opacity:1;
+
+}
+
+}
+
+#typing::after{
+
+content:"|";
+
+animation:blink .8s infinite;
+
+margin-left:3px;
+
+}
+@keyframes buttonGlow{
+
+0%{
+
+box-shadow:
+0 0 10px #ff66ff,
+0 0 20px #ff66ff;
+
+}
+
+100%{
+
+box-shadow:
+0 0 25px white,
+0 0 45px #ff66ff,
+0 0 70px #ff66ff;
+
+}
+
+}
+/*=========================
+      PAGE 2
+==========================*/
+
+#page2{
+    width:100%;
+    min-height:100vh;      /* height ki jagah min-height */
+    display:none;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+
+    overflow-y:auto;        /* scroll allow karo */
+    overflow-x:hidden;
+
+    padding:40px 0;
+
+    background:linear-gradient(
+        135deg,
+        #140021,
+        #3d0066,
+        #8a2be2
+    );
+}
+.envelope-container{
+
+    width:100%;
+height:100%;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+
+}
+
+.envelope{
+
+    position:relative;
+
+    width:320px;
+
+    height:220px;
+
+    cursor:pointer;
+
+}
+
+.envelope-body{
+
+    position:absolute;
+
+    width:100%;
+
+    height:100%;
+
+    background:#f7d7b5;
+
+    border-radius:10px;
+
+}
+
+.envelope-top{
+
+    position:absolute;
+
+    width:100%;
+
+    height:110px;
+
+    background:#e8c59b;
+
+    clip-path:polygon(0 0,100% 0,50% 100%);
+
+    transform-origin:top;
+
+    transition:.8s;
+
+    z-index:2;
+
+}
+
+.heart-seal{
+
+    position:absolute;
+
+    left:50%;
+
+    top:48%;
+
+    transform:translate(-50%,-50%);
+
+    font-size:40px;
+
+    z-index:3;
+
+}
+
+.open-text{
+
+    margin-top:35px;
+
+    color:white;
+
+    font-size:24px;
+
+    animation:blinkText 1.5s infinite;
+
+}
+
+@keyframes blinkText{
+
+0%,100%{
+
+opacity:1;
+
+}
+
+50%{
+
+opacity:.3;
+
+}
+
+}
+/*====================================
+      Premium Envelope
+====================================*/
+
+.envelope{
+
+width:340px;
+
+height:240px;
+
+position:relative;
+
+cursor:pointer;
+
+transition:.5s;
+
+}
+
+.back{
+
+position:absolute;
+
+width:100%;
+
+height:100%;
+
+background:#f5d3a4;
+
+border-radius:10px;
+
+box-shadow:
+
+0 20px 40px rgba(0,0,0,.35);
+
+}
+
+.left-fold{
+
+position:absolute;
+
+left:0;
+
+top:0;
+
+width:50%;
+
+height:100%;
+
+background:#ebc590;
+
+clip-path:polygon(0 0,100% 50%,0 100%);
+
+}
+
+.right-fold{
+
+position:absolute;
+
+right:0;
+
+top:0;
+
+width:50%;
+
+height:100%;
+
+background:#ebc590;
+
+clip-path:polygon(100% 0,0 50%,100% 100%);
+
+}
+
+.bottom-fold{
+
+position:absolute;
+
+bottom:0;
+
+width:100%;
+
+height:55%;
+
+background:#e7bb82;
+
+clip-path:polygon(0 100%,50% 0,100% 100%);
+
+}
+
+.top-fold{
+
+position:absolute;
+
+top:0;
+
+width:100%;
+
+height:55%;
+
+background:#f0cca1;
+
+clip-path:polygon(0 0,50% 100%,100% 0);
+
+z-index:5;
+
+transform-origin:top;
+
+}
+
+.seal{
+
+position:absolute;
+
+left:50%;
+
+top:54%;
+
+transform:translate(-50%,-50%);
+
+width:60px;
+
+height:60px;
+
+border-radius:50%;
+
+background:#ff4db8;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+font-size:28px;
+
+box-shadow:
+
+0 0 20px #ff66cc,
+
+0 0 40px #ff99dd;
+
+z-index:10;
+
+}
+
+.letter{
+
+position:absolute;
+
+left:50%;
+
+bottom:18px;
+
+transform:translateX(-50%);
+
+width:88%;
+
+height:88%;
+
+background:#fff9e8;
+
+border-radius:8px;
+
+box-shadow:
+
+0 5px 15px rgba(0,0,0,.2);
+
+z-index:1;
+
+}
+/*====================================
+      Envelope Open Animation
+====================================*/
+
+.envelope.open .top-fold{
+
+    transform:rotateX(180deg);
+
+    transition:1s ease;
+
+}
+
+.envelope:hover{
+
+    transform:translateY(-8px) scale(1.02);
+
+}
+/*====================================
+      Letter Animation
+====================================*/
+
+.letter{
+
+    transition:1s ease;
+
+}
+
+.envelope.open .letter{
+
+    bottom:85px;
+
+    transform:translateX(-50%) scale(1.03);
+
+}
+
+.envelope.open .seal{
+
+    opacity:0;
+
+    transform:translate(-50%,-50%) scale(0);
+
+    transition:.6s ease;
+
+}
+/*====================================
+      Premium Open Effect
+====================================*/
+
+.envelope{
+
+    transition:
+    transform .8s ease,
+    filter .8s ease;
+
+}
+
+.envelope.open{
+
+    transform:
+    scale(1.05);
+
+    filter:
+    drop-shadow(0 0 25px rgba(255,255,255,.4));
+
+}
+
+.envelope.open .letter{
+
+    bottom:130px;
+
+    width:92%;
+
+    height:92%;
+
+}
+
+.envelope.open + .open-text{
+
+    opacity:0;
+
+    transform:translateY(20px);
+
+    transition:.5s;
+
+}
+/*====================================
+        Love Letter
+====================================*/
+
+#loveLetter{
+
+    position:relative;
+
+    width:80%;
+
+    max-width:700px;
+
+    margin:60px auto;
+
+    padding:40px;
+
+    background:#fff8dc;
+
+    border-radius:12px;
+
+    box-shadow:0 20px 40px rgba(0,0,0,.35);
+
+    display:none;
+
+}
+#loveLetter h2{
+
+    text-align:center;
+
+    color:#b00070;
+
+    margin-bottom:25px;
+
+}
+
+#letterText{
+
+    font-size:22px;
+
+    line-height:30px;
+
+    color:#4d2d00;
+
+    white-space:pre-line;
+
+}
+/*====================================
+      Letter Button
+====================================*/
+
+#page3Btn{
+
+    display:none;
+
+    margin:40px auto 0;
+
+    padding:16px 35px;
+
+    border:none;
+
+    border-radius:40px;
+
+    background:linear-gradient(45deg,#ff4fd8,#8a2be2);
+
+    color:white;
+
+    font-size:18px;
+
+    cursor:pointer;
+
+    transition:.4s;
+
+}
+
+#page3Btn:hover{
+
+    transform:scale(1.05);
+
+    box-shadow:
+    0 0 20px #ff66ff;
+
+}
+/*====================================
+            PAGE 3
+====================================*/
+
+#page3{
+
+    width:100%;
+
+    height:100vh;
+
+    display:none;
+
+    justify-content:center;
+
+    align-items:center;
+
+    position:relative;
+
+    overflow:hidden;
+
+    background:linear-gradient(
+    135deg,
+    #180028,
+    #5b0099,
+    #b300ff);
+
+}
+
+.dream-box{
+
+    position:relative;
+
+    width:420px;
+
+    height:520px;
+
+}
+
+.dream-paper{
+
+    position:absolute;
+
+    inset:0;
+
+    background:#fff8e8;
+
+    border-radius:12px;
+
+    padding:40px;
+
+    box-sizing:border-box;
+
+    overflow-y:auto;
+
+    overflow-x:hidden;
+
+    box-shadow:0 20px 50px rgba(0,0,0,.35);
+
+    z-index:1;
+
+}
+.dream-paper h2{
+
+    text-align:center;
+
+    color:#c2188b;
+
+    margin-bottom:30px;
+
+}
+
+.ribbon-horizontal{
+
+    position:absolute;
+
+    top:50%;
+
+    left:0;
+
+    width:100%;
+
+    height:18px;
+
+    background:#ff4db8;
+
+    z-index:5;
+
+}
+
+.ribbon-vertical{
+
+    position:absolute;
+
+    left:50%;
+
+    top:0;
+
+    width:18px;
+
+    height:100%;
+
+    transform:translateX(-50%);
+
+    background:#ff4db8;
+
+    z-index:5;
+
+}
+
+.ribbon-knot{
+
+    position:absolute;
+
+    left:50%;
+
+    top:50%;
+
+    transform:translate(-50%,-50%);
+
+    font-size:42px;
+
+    z-index:10;
+
+}
+
+#dreamText{
+
+    white-space:pre-line;
+
+    font-size:21px;
+
+    line-height:30x;
+
+    color:#4d2d00;
+
+}
+
+#finalBtn{
+
+    display:none;
+
+    margin:30px auto;
+
+    padding:15px 30px;
+
+    border:none;
+
+    border-radius:40px;
+
+    background:linear-gradient(45deg,#ff4fd8,#7b1fa2);
+
+    color:white;
+
+    cursor:pointer;
+
+    font-size:18px;
+
+}/*====================================
+      Ribbon Animation
+====================================*/
+
+.ribbon-horizontal,
+.ribbon-vertical,
+.ribbon-knot{
+
+    transition:1s ease;
+
+}
+
+.dream-box.open .ribbon-horizontal{
+
+    transform:scaleX(0);
+
+    opacity:0;
+
+}
+
+.dream-box.open .ribbon-vertical{
+
+    transform:translateX(-50%) scaleY(0);
+
+    opacity:0;
+
+}
+
+.dream-box.open .ribbon-knot{
+
+    transform:translate(-50%,-50%) scale(0);
+
+    opacity:0;
+
+}
+
+.dream-paper{
+
+    opacity:0;
+
+    transform:scale(.9);
+
+    transition:.8s ease;
+
+}
+
+.dream-box.open .dream-paper{
+
+    opacity:1;
+
+    transform:scale(1);
+
+}
+/*====================================
+      PAGE 3 TRANSITION
+====================================*/
+
+/*====================================
+      Dream Paper Animation
+====================================*/
+
+.dream-paper{
+
+    transition:
+        opacity .8s ease,
+        transform .8s ease;
+
+}
+/*====================================
+            FINAL PAGE
+====================================*/
+
+#finalPage{
+
+    width:100%;
+    height:100vh;
+
+    display:none;
+
+    justify-content:center;
+    align-items:center;
+
+    position:relative;
+
+    overflow:hidden;
+
+    background:linear-gradient(
+    135deg,
+    #12001f,
+    #4b0082,
+    #7b1fa2);
+
+}
+
+.finalContent{
+
+    position:relative;
+
+    z-index:20;
+
+    text-align:center;
+
+}
+
+#finalTyping{
+
+    color:white;
+
+    font-size:55px;
+
+    line-height:1.4;
+
+    text-shadow:
+
+    0 0 15px white,
+
+    0 0 30px #ff66ff,
+
+    0 0 60px #ff66ff;
+
+}
+/*====================================
+      FINAL BACKGROUND EFFECTS
+====================================*/
+
+#finalStars,
+#finalHearts,
+#finalPetals,
+#finalSparkles,
+#fireworks,
+#finalMoon{
+
+    position:absolute;
+
+    inset:0;
+
+    pointer-events:none;
+
+}
+
+
+.firework{
+
+    position:absolute;
+
+    width:6px;
+
+    height:6px;
+
+    border-radius:50%;
+
+    background:white;
+
+    animation:fireworkFlash 1s linear forwards;
+
+}
+
+@keyframes fireworkFlash{
+
+    0%{
+
+        transform:scale(.2);
+
+        opacity:1;
+
+    }
+
+    100%{
+
+        transform:scale(10);
+
+        opacity:0;
+
+    }
+
+}
+/*====================================
+      FINAL TEXT ANIMATION
+====================================*/
+
+#finalTyping{
+
+    animation:finalGlow 2s infinite alternate;
+
+}
+
+@keyframes finalGlow{
+
+    from{
+
+        text-shadow:
+
+        0 0 10px white,
+
+        0 0 20px #ff66ff;
+
+    }
+
+    to{
+
+        text-shadow:
+
+        0 0 25px white,
+
+        0 0 60px #ff66ff,
+
+        0 0 100px #ff66ff;
+
+    }
+
+}
+/*====================================
+        FINAL POLISH
+====================================*/
+
+*{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    overflow-x:hidden;
+
+    overflow-y:auto;
+
+}
+.finalContent{
+
+    animation:fadeIn 2s ease;
+
+}
+
+@keyframes fadeIn{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(40px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+#finalTyping{
+
+    max-width:900px;
+
+    padding:20px;
+
+    margin:auto;
+
+}
+
+@media(max-width:768px){
+
+    #finalTyping{
+
+        font-size:32px;
+
+        line-height:55px;
+
+        padding:15px;
+
+    }
+
+    .dream-box{
+
+        width:95%;
+
+        height:85vh;
+
+    }
+
+    #loveLetter{
+
+        width:90%;
+
+    }
+
+}
+.firework{
+
+    position:absolute;
+
+    width:10px;
+
+    height:10px;
+
+    border-radius:50%;
+
+    animation:fireworkBlast 1.2s ease-out forwards;
+
+    box-shadow:
+        0 0 15px currentColor,
+        0 0 35px currentColor,
+        0 0 60px currentColor;
+
+}
+
+@keyframes fireworkBlast{
+
+    0%{
+
+        transform:scale(.2);
+
+        opacity:1;
+
+    }
+
+    40%{
+
+        transform:scale(4);
+
+        opacity:1;
+
+    }
+
+    100%{
+
+        transform:scale(10);
+
+        opacity:0;
+
+    }
+
+}/*====================================
+      CINEMATIC ENDING
+====================================*/
+
+#finalPage.cinematic{
+
+    animation:cinematicBg 3s forwards;
+
+}
+
+@keyframes cinematicBg{
+
+    from{
+
+        filter:brightness(1);
+
+    }
+
+    to{
+
+        filter:brightness(.78);
+
+    }
+
+}
+
+#finalTyping.finish{
+
+    animation:finalZoom 3s ease forwards;
+
+}
+
+@keyframes finalZoom{
+
+    0%{
+
+        transform:scale(1);
+
+    }
+
+    50%{
+
+        transform:scale(1.08);
+
+    }
+
+    100%{
+
+        transform:scale(1.12);
+
+    }
+
+}
+
+#finalTyping.finish{
+
+    text-shadow:
+
+    0 0 20px white,
+
+    0 0 50px #ff66ff,
+
+    0 0 100px #ff66ff,
+
+    0 0 160px #ff00ff;
+
+}
+/*====================================
+      PREMIUM HEARTS
+====================================*/
+
+.heart{
+
+    position:absolute;
+
+    bottom:-60px;
+
+    user-select:none;
+
+    pointer-events:none;
+
+    opacity:.9;
+
+    filter:
+
+    drop-shadow(0 0 8px #ff4fd8)
+
+    drop-shadow(0 0 20px #ff66ff);
+
+    animation:heartFloat linear forwards;
+
+}
+
+@keyframes heartFloat{
+
+    0%{
+
+        transform:
+        translateY(0)
+        translateX(0)
+        rotate(0deg)
+        scale(.8);
+
+        opacity:0;
+
+    }
+
+    15%{
+
+        opacity:1;
+
+    }
+
+    40%{
+
+        transform:
+        translateY(-250px)
+        translateX(-20px)
+        rotate(-10deg)
+        scale(1);
+
+    }
+
+    70%{
+
+        transform:
+        translateY(-550px)
+        translateX(20px)
+        rotate(12deg)
+        scale(1.15);
+
+    }
+
+    100%{
+
+        transform:
+        translateY(-900px)
+        translateX(-15px)
+        rotate(25deg)
+        scale(1.3);
+
+        opacity:0;
+
+    }
+
+}
+/*====================================
+      PREMIUM ROSE PETALS
+====================================*/
+
+.petal{
+
+    position:absolute;
+
+    top:-60px;
+
+    user-select:none;
+
+    pointer-events:none;
+
+    filter:
+
+    drop-shadow(0 0 8px #ff4fd8)
+
+    drop-shadow(0 0 18px #ff99cc);
+
+    animation:petalFall linear forwards;
+
+}
+
+@keyframes petalFall{
+
+    0%{
+
+        transform:
+        translateY(0)
+        translateX(0)
+        rotate(0deg);
+
+        opacity:0;
+
+    }
+
+    10%{
+
+        opacity:1;
+
+    }
+
+    30%{
+
+        transform:
+        translateY(220px)
+        translateX(-30px)
+        rotate(90deg);
+
+    }
+
+    60%{
+
+        transform:
+        translateY(520px)
+        translateX(35px)
+        rotate(180deg);
+
+    }
+
+    100%{
+
+        transform:
+        translateY(1000px)
+        translateX(-20px)
+        rotate(360deg);
+
+        opacity:0;
+
+    }
+
+}
+
+/*====================================
+          PREMIUM MOON
+====================================*/
+
+#finalMoon{
+
+    position:absolute;
+
+    top:70px;
+
+    right:80px;
+
+    width:180px;
+
+    height:180px;
+
+    border-radius:50%;
+
+    background:radial-gradient(circle,
+    rgba(255,255,255,1) 0%,
+    rgba(240,230,255,.95) 40%,
+    rgba(190,140,255,.35) 75%,
+    transparent 100%);
+
+    box-shadow:
+        0 0 40px white,
+        0 0 80px #d8b4fe,
+        0 0 140px #a855f7,
+        0 0 220px rgba(168,85,247,.5);
+
+    animation:moonBreath 5s ease-in-out infinite;
+
+    z-index:2;
+
+}
+/*====================================
+        SIGNATURE MESSAGE
+====================================*/
+
+
+#signature.show{
+
+    opacity:1;
+
+}
+#signature{
+
+    position:absolute;
+
+    left:50%;
+
+    bottom:60px;
+
+    transform:translateX(-50%);
+
+    width:90%;
+
+    text-align:center;
+
+    color:white;
+
+    font-size:24px;
+
+    line-height:42px;
+
+    opacity:0;
+
+    text-shadow:
+        0 0 15px white,
+        0 0 35px #ff66ff,
+        0 0 70px #a855f7;
+
+    transition:opacity 2s ease;
+
+}
+@keyframes signatureGlow{
+
+    0%{
+
+        text-shadow:
+        0 0 10px white,
+        0 0 25px #ff66ff;
+
+    }
+
+    100%{
+
+        text-shadow:
+        0 0 25px white,
+        0 0 55px #ff66ff,
+        0 0 90px #a855f7;
+
+    }
+
+}
+
+#signature.show{
+
+    opacity:1;
+
+    animation:signatureGlow 2s infinite alternate;
+
+}
+/*====================================
+            LOADER
+====================================*/
+
+#loader{
+
+    position:fixed;
+
+    inset:0;
+
+    background:linear-gradient(
+    135deg,
+    #140021,
+    #5b0099,
+    #8a2be2);
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:99999;
+
+    transition:opacity .8s ease;
+
+}
+
+.loader-heart{
+
+    font-size:90px;
+
+    animation:heartBeat 1.2s infinite;
+
+    filter:
+    drop-shadow(0 0 15px #ff66ff)
+    drop-shadow(0 0 40px #ff66ff);
+
+}
+
+#loader h2{
+
+    margin-top:25px;
+
+    color:white;
+
+    font-size:32px;
+
+    text-shadow:
+    0 0 15px white,
+    0 0 30px #ff66ff;
+
+}
+
+@keyframes heartBeat{
+
+    0%{
+
+        transform:scale(1);
+
+    }
+
+    50%{
+
+        transform:scale(1.25);
+
+    }
+
+    100%{
+
+        transform:scale(1);
+
+    }
+
+}
+/*====================================
+      PAGE TRANSITIONS
+====================================*/
+
+.pageFadeOut{
+
+    animation:pageFadeOut .6s forwards;
+
+}
+
+.pageFadeIn{
+
+    animation:pageFadeIn .8s forwards;
+
+}
+
+@keyframes pageFadeOut{
+
+    from{
+
+        opacity:1;
+
+        transform:scale(1);
+
+    }
+
+    to{
+
+        opacity:0;
+
+        transform:scale(.96);
+
+    }
+
+}
+
+@keyframes pageFadeIn{
+
+    from{
+
+        opacity:0;
+
+        transform:scale(1.04);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:scale(1);
+
+    }
+
+}
+/*====================================
+      PREMIUM BUTTONS
+====================================*/
+
+button{
+
+    transition:
+    transform .35s ease,
+    box-shadow .35s ease,
+    background .35s ease;
+
+}
+
+button:hover{
+
+    transform:
+    translateY(-4px)
+    scale(1.05);
+
+    box-shadow:
+    0 0 20px #ff66ff,
+    0 0 45px #ff99ff;
+
+}
+
+button:active{
+
+    transform:scale(.96);
+
+}
+/*====================================
+      BUTTON RIPPLE EFFECT
+====================================*/
+
+/*====================================
+        CUSTOM SCROLLBAR
+====================================*/
+
+::-webkit-scrollbar{
+
+    width:10px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#2b0048;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:linear-gradient(
+    #ff66ff,
+    #8a2be2);
+
+    border-radius:20px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:linear-gradient(
+    #ff99ff,
+    #b266ff);
+
+}
+::selection{
+
+    background:#ff66ff;
+
+    color:white;
+
+}
+@media(max-width:768px){
+
+    {
+
+        font-size:32px;
+
+        line-height:50px;
+
+        min-height:180px;
+
+    }
+
+    #finalTyping{
+
+        font-size:30px;
+
+        line-height:48px;
+
+    }
+
+    .envelope{
+
+        transform:scale(.85);
+
+    }
+
+}
+.memory-button-section{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin:60px 0;
+display: none;
+}
+
+#showMemoriesBtn{
+    background:#ff4d6d;
+    color:white;
+    border:none;
+    padding:16px 32px;
+    border-radius:50px;
+    font-size:20px;
+    cursor:pointer;
+    transition:0.3s;
+    box-shadow:0 10px 25px rgba(255,77,109,.4);
+}
+
+#showMemoriesBtn:hover{
+    transform:scale(1.08);
+    background:#ff2d55;
+}
+/* =========================
+   MEMORY GALLERY
+========================= */
+
+#memoryGallery{
+    width:100%;
+    padding:80px 20px;
+    text-align:center;
+}
+
+.gallery-title{
+    color:#fff;
+    font-size:40px;
+    margin-bottom:40px;
+    text-shadow:0 0 15px rgba(255,255,255,.4);
+}
+
+.gallery{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:30px;
+}
+
+.gallery img{
+    width:260px;
+    height:340px;
+    object-fit:cover;
+    border-radius:18px;
+    border:6px solid white;
+    box-shadow:0 15px 35px rgba(0,0,0,.35);
+    transition:.4s;
+    cursor:pointer;
+}
+
+.gallery img:hover{
+    transform:scale(1.08) rotate(-2deg);
+    box-shadow:0 20px 45px rgba(255,77,109,.45);
+}
+
+/* Mobile */
+
+@media(max-width:768px){
+
+.gallery img{
+
+    width:90%;
+    height:auto;
+
+}
+
+.gallery-title{
+
+    font-size:30px;
+
+}
+
+}
+/* ===========================
+   LIGHTBOX
+=========================== */
+
+#lightbox{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.9);
+    display:none;
+    justify-content:center;
+    align-items:center;
+    z-index:9999;
+}
+
+#lightbox img{
+    max-width:90%;
+    max-height:90%;
+    border-radius:20px;
+    border:5px solid white;
+    box-shadow:0 0 40px rgba(255,255,255,.3);
+    animation:zoomIn .35s ease;
+}
+
+#closeLightbox{
+    position:absolute;
+    top:20px;
+    right:35px;
+    color:white;
+    font-size:50px;
+    cursor:pointer;
+}
+
+@keyframes zoomIn{
+
+from{
+
+transform:scale(.7);
+opacity:0;
+
+}
+
+to{
+
+transform:scale(1);
+opacity:1;
+
+}
+
+}
+/* END SECTION */
+
+.end-section{
+    text-align:center;
+    padding:80px 20px;
+}
+
+#endBtn{
+    padding:18px 40px;
+    font-size:22px;
+    border:none;
+    border-radius:50px;
+    background:linear-gradient(45deg,#ff4d6d,#ff85a2);
+    color:white;
+    cursor:pointer;
+    box-shadow:0 12px 30px rgba(255,77,109,.45);
+    transition:.4s;
+}
+
+#endBtn:hover{
+    transform:scale(1.08);
+}
+
+.end-text{
+    margin-top:35px;
+    font-size:24px;
+    color:white;
+    line-height:1.8;
+}
+
+#memoryGallery{
+    width:100%;
+    padding:80px 20px;
+    text-align:center;
+
+
+
+    display:none;
+
+    min-height:100vh;
+
+    background:linear-gradient(
+        135deg,
+        #12001f,
+        #4b0082,
+        #7b1fa2
+    );
+
+}
