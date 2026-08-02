@@ -1379,7 +1379,11 @@ z-index:1;
 #finalPage{
 
     width:100%;
-    height:100vh;
+   min-height:100vh;
+height:auto;
+overflow-y:auto;
+overflow-x:hidden;
+padding:40px 20px;
 
     display:none;
 
@@ -1388,8 +1392,7 @@ z-index:1;
 
     position:relative;
 
-    overflow:hidden;
-
+    
     background:linear-gradient(
     135deg,
     #12001f,
@@ -1904,34 +1907,15 @@ body{
 
 }
 #signature{
-
-    position:absolute;
-
-    left:50%;
-
-    bottom:60px;
-
-    transform:translateX(-50%);
-
+    position:relative;
     width:90%;
-
+    margin:40px auto 0;
     text-align:center;
-
     color:white;
-
     font-size:24px;
-
     line-height:42px;
-
     opacity:0;
-
-    text-shadow:
-        0 0 15px white,
-        0 0 35px #ff66ff,
-        0 0 70px #a855f7;
-
     transition:opacity 2s ease;
-
 }
 @keyframes signatureGlow{
 
@@ -2373,5 +2357,39 @@ opacity:1;
         #4b0082,
         #7b1fa2
     );
+
+}
+@media(max-width:768px){
+
+    #finalPage{
+        justify-content:flex-start;
+        padding-top:80px;
+        padding-bottom:60px;
+    }
+
+    #finalTyping{
+        font-size:30px;
+        line-height:1.5;
+    }
+
+    #signature{
+        position:relative;
+left:50%;
+bottom:60px;
+transform:translateX(-50%);
+        margin-top:25px;
+        font-size:18px;
+        line-height:32px;
+    }
+
+    .memory-button-section{
+        margin-top:35px;
+    }
+
+    #showMemoriesBtn{
+        width:90%;
+        font-size:18px;
+        padding:15px;
+    }
 
 }
